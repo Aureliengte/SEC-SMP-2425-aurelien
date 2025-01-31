@@ -27,10 +27,10 @@ void point::copy(point const& a){
 // ---------- Accesseurs ----------
 
 // Recuperer l'abscisse d'un point
-float point::getAbscisse(){ return x; }
+float point::getAbscisse() const { return x; }
 
 // Recuperer l'ordonnee d'un point
-float point::getOrdonnee(){ return y; }
+float point::getOrdonnee() const { return y; }
 
 // ---------- Mutateurs ----------
 
@@ -39,3 +39,17 @@ void point::setAbscisse(float new_x){x = new_x;}
 
 // Modifier l'ordonnee d'un point
 void point::setOrdonnee(float new_y){y = new_y;}
+
+// ---------- Operateurs ----------
+
+// Surcharge l'operateur +=
+void point::operator+=(point const& a){
+    x += a.x;
+    y += a.y;
+}
+
+// Surcharge l'operateur <<
+ostream& operator<<(ostream& s, point const& a){
+    s << a.getAbscisse() << " , " << a.getOrdonnee();
+    return s;
+}

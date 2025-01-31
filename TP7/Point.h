@@ -1,4 +1,7 @@
 #pragma once
+#include <iostream>
+
+using namespace std;
 
 class point{
 private :
@@ -15,10 +18,16 @@ public :
     void copy(point const& a);
 
     // Accesseurs
-    float getAbscisse();
-    float getOrdonnee();
+    float getAbscisse() const;
+    float getOrdonnee() const;
 
     // Mutateurs
     void setAbscisse(float new_x);
     void setOrdonnee(float new_y);
+
+    // Autres membres
+    void operator+=(point const& a);
 };
+
+// Operateurs externe
+ostream& operator<<(ostream&, point const&);
